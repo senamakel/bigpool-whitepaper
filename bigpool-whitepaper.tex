@@ -1,0 +1,211 @@
+\documentclass{Bigpool}
+\usepackage{mathptmx}
+\usepackage[
+pdfstartview=XYZ,
+bookmarks=true,
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue,
+pdftex,
+bookmarks=true,
+linktocpage=true, % makes the page number as hyperlink in table of content
+hyperindex=true
+]{hyperref}
+
+%\usepackage{times}
+%\normalfont
+%\usepackage[T1]{fontenc}
+%\usepackage[mtplusscr,mtbold]{mathtime}
+
+\begin{document}
+\begin{frontmatter}              % The preamble begins here.
+
+\title{BigPool}
+\subtitle{A Cross-Chain Decentralised Liquidity Pool for Crypto Exchanges}
+\author{Steven Enamakel - enamakel@cryptocontrol.io}
+
+\begin{abstract}
+These instructions are designed for the Preparation of an Electronic
+Camera-Ready Manuscript in \LaTeX{} and should be read carefully. If you
+have any questions regarding the instructions, please contact the Book
+Production Department, by e-mail: \textit{bookproduction@iospress.nl}
+or fax: +31-20-6870039.
+\end{abstract}
+
+\end{frontmatter}
+
+%\thispagestyle{empty}
+%\pagestyle{empty}
+
+\section*{Introduction}
+Bitcoin was the first digital p2p currency that received mass adoption since it was launched in 2009. Since then the first crypto exchange, Mt. Gox, came in July 2010 and it allowed for investors to get Bitcoins by trading it for USD. Since the Mt. Gox hack in 2011, there have been several concerns about the security of such centralised exchanges. Decentralised exchanges have later come into the picture allow every transaction/trade to happen on the blockchain offering security of funds for the user. However decentralised exchanges today are limited by the transaction speed of the network it operates in.
+
+Exchanges that combine the best of a centralized order matching engine and a decentralized liquidity pool have been conceptualized. These exchanges work by creating a side-chain/off-chain that runs off a smart-contract enabled blockchain like Ethereum. However these exchanges are often only restricted within the domain of the tokens that are issued in that blockchain, eg: Ethereum and ERC20 tokens. 
+
+In this paper, a new sidechain protocol is proposed for crypto-exchanges that allows exchanges to accept funds from users in a liquidity pool that is decentralised (ensuring the safety of funds) while at the allowing exchanges to match orders and earning transaction fees on a centralised server. Order are relayed by the exchanges to the sidechain and order settlement eventually happens on the sidechain. 
+
+Users can deposit/withdraw any token that uses ECDSA public-private keys (eg: Bitcoin, USDT, Litecoin) securely onto the sidechain and will get pegged tokens issued on the sidechain that can efficiently traded on exchanges.\footnote{For authors using MS Word separate Instructions as well
+as a Word template are available from the Author's Corner on
+www.iospress.nl.}
+
+\section{The BigPool Token}
+To incentivise miners to contribute to the growth and functionality of the blockchain, we introduce a new token native to the Lightning blockchain called as the BigPool token.
+
+The BigPool token is created every time a new block is mined. The supply of the BigPool token increases at a rate of 5\% annually. 
+
+\subsection{Earning Dividends with the BigPool token}
+The BigPool token is a token that has a special property in that it pays dividends to all the token holders proportionate to how much tokens they hold. Dividends come in the form the transactions fees that are charged in the network and come in form of the token that is being transacted with.
+
+This gives the BigPool token an inherent value because token holders will be getting dividends in the form of other tokens  that might be more valuable to them. 
+
+\section{Exchanges on the network}
+A crypto-exchange is a third party that matches orders submitted by users. Users send orders to an exchange and an exchanges matches them and send them over to the BigPool side-chain.
+
+\subsection{Font}
+
+The font type for running text (body text) is 10~point Times New Roman.
+There is no need to code normal type (roman text). For literal text, please use
+\texttt{type\-writer} (\verb|\texttt{}|)
+or \textsf{sans serif} (\verb|\textsf{}|). \emph{Italic} (\verb|\emph{}|)
+or \textbf{boldface} (\verb|\textbf{}|) should be used for emphasis.
+
+\subsection{General Layout}
+Use single (1.0) line spacing throughout the document. For the main
+body of the paper use the commands of the standard \LaTeX{}
+``article'' class. You can add packages or declare new \LaTeX{}
+functions if and only if there is no conflict between your packages
+and the \texttt{IOS-Book-Article}.
+
+Always give a \verb|\label| where possible and use \verb|\ref| for cross-referencing.
+
+
+\subsection{(Sub-)Section Headings}
+Use the standard \LaTeX{} commands for headings: {\small \verb|\section|, \verb|\subsection|, \verb|\subsubsection|, \verb|\paragraph|}.
+Headings will be automatically numbered.
+
+Use initial capitals in the headings, except for articles (a, an, the), coordinate
+conjunctions (and, or, nor), and prepositions, unless they appear at the beginning
+of the heading.
+
+\subsection{Footnotes and Endnotes}
+Please keep footnotes to a minimum. If they take up more space than roughly 10\% of
+the type area, list them as endnotes, before the References. Footnotes and endnotes
+should both be numbered in arabic numerals and, in the case of endnotes, preceded by
+the heading ``Endnotes''.
+
+\subsection{References}
+
+References to the literature should be mentioned in the main text by arabic numerals in
+square brackets. Use the Citation-Sequence System, which means they are ``listed and
+numbered in the sequence in which they are 1st cited. ($\ldots$) Subsequent citations of the
+same document use the same numbers as that of its initial citation'' \cite{r1}.
+
+As regards the content, form and punctuation of the References, if the volume
+editor has not expressed a preference in this matter, authors should select the format
+most appropriate to their article, and use it \textit{consistently}.
+
+\section{Illustrations}
+
+\subsection{General Remarks on Illustrations}
+The text should include references to all illustrations. Refer to illustrations in the
+text as Table~1, Table~2, Figure~1, Figure~2, etc., not with the section or chapter number
+included, e.g. Table 3.2, Figure 4.3, etc. Do not use the words ``below'' or ``above''
+referring to the tables, figures, etc.
+
+Do not collect illustrations at the back of your article, but incorporate them in the
+text. Position tables and figures at the top or bottom of a page, with at least 2 lines
+extra space between tables or figures and the running text.
+
+Illustrations should be centered on the page, except for small figures that can fit
+side by side inside the type area. Tables and figures should not have text wrapped
+alongside.
+
+Place figure captions \textit{below} the figure, table captions \textit{above} the table.
+Use bold for table/figure labels and numbers, e.g.: \textbf{Table 1.}, \textbf{Figure 2.},
+and roman for the text of the caption. Keep table and figure captions justified. Center
+short figure captions only.
+
+The minimum \textit{font size} for characters in tables is 8 points, and for lettering in other
+illustrations, 6 points.
+
+On maps and other figures where a \textit{scale} is needed, use bar scales rather than
+numerical ones of the type 1:10,000.
+
+\subsection{Quality of Illustrations}
+Use only Type I fonts for lettering in illustrations.
+
+Include graphics in Encapsulated postscript (EPS) format. Do \textit{not} use illustrations
+taken from the Internet. The resolution of images intended for viewing on a screen is
+not sufficient for the printed version of the book.
+
+If you are incorporating screen captures, keep in mind that the text may not be
+legible after reproduction (using a screen capture tool, instead of the Print Screen
+option of PC's, might help to improve the quality).
+
+\subsection{Color Illustrations}
+Please note, that illustrations will only be printed in color if the volume editor agrees to
+pay the production costs for color printing. However, you should \textit{not} use color in
+illustrations that must be printed in black and white, because this will greatly reduce the
+print quality. (Note that in software the default often is color, so you may have to
+change the settings for these illustrations.)
+
+Illustrations that must be printed in colour should be enclosed as CMYK-encoded
+EPS files.
+
+
+\section{Equations}
+Number equations consecutively, not section-wise. Place the numbers in parentheses at
+the right-hand margin, level with the last line of the equation. Refer to equations in the
+text as Eq. (1), Eqs. (3) and (5).
+
+\section{Fine Tuning}
+
+\subsection{Type Area}
+\textbf{Check once more that all the text and illustrations are inside the type area and
+that the type area is used to the maximum.} You may of course end a page with one
+or more blank lines to avoid `widow' headings, or at the end of a chapter.
+
+\subsection{Capitalization}
+Use initial capitals in the title and headings, except for articles (a, an, the), coordinate
+conjunctions (and, or, nor), and prepositions, unless they appear at the beginning of the
+title or heading.
+
+\subsection{Page Numbers and Running Headlines}
+You do not need to include page numbers or running headlines. These elements will be
+added by the publisher.
+
+\section{Submitting the Manuscript}
+Submit the following to the volume editor:
+
+\begin{enumerate}
+\item The main source file, and any other required files. Do not submit more than
+one version of any item.
+
+\item Identical high resolution PDF file with all fonts embedded. First produce a
+Postscript file from \LaTeX{} with DVIPS version 5.56 or higher. The option
+``-M'' (don't make fonts) should be indicated. Use Adobe Acrobat Distiller to
+produce the PDF and choose the job option \textit{Press-Optimized}.
+\end{enumerate}
+
+
+\begin{thebibliography}{99}
+	\bibitem{r1}
+	\textit{Satoshi Nakamoto}: Bitcoin A Peer-to-Peer Electronic Cash System - \url{https://bitcoin.org/bitcoin.pdf} - 2009
+
+	\bibitem{r2}
+	\textit{Will Warren, Amir Bandeali}: 0x: An open protocol for decentralized exchange on the Ethereum blockchain - \url{https://0xproject.com/pdfs/0x_white_paper.pdf} - 2017
+
+	\bibitem{r3}
+	\textit{Adi Shamir}: How to share a secret - \url{https://cs.jhu.edu/~sdoshi/crypto/papers/shamirturing.pdf} - 1979
+
+	\bibitem{r4}
+	\textit{Steven Goldfeder, Rosario Gennaro, Harry Kalodner, Joseph Bonneau, Joshua A.Kroll, Edward W.Felten, Arvind Narayanan}: Securing Bitcoin wallets via a new DSA/ECDSA threshold signature scheme - \url{https://cs.jhu.edu/~sdoshi/crypto/papers/shamirturing.pdf} - 1979
+
+	\bibitem{r5}
+	\textit{Dr. Gavin Wood}: Polkadot: Vision for a Heterogeneous Multi-Chain Framework - \url{https://github.com/w3f/polkadot-white-paper/blob/master/PolkaDotPaper.pdf} - 2016
+
+	\bibitem{r6}
+	\textit{Jack Lu, Demmon, Shi, Zane Liang, Ying Zhang, Boris Yang, Eric Swartz, Lizzie Lu}: Wanchain yellow paper - \url{https://www.wanchain.org/files/Wanchain-Yellowpaper-EN-version.pdf} - 2017
+\end{thebibliography}
+\end{document}
