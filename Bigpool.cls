@@ -6,8 +6,8 @@
 %% for IOS Press, The Netherlands
 %% Please submit bugs or your comments to vytas@vtex.lt
 %%
-%% You are free to use this class file as you see fit, provided 
-%% that you do not make changes to the file. 
+%% You are free to use this class file as you see fit, provided
+%% that you do not make changes to the file.
 %% If you DO make changes, you are required to rename this file.
 %%
 %% It may be distributed under the terms of the LaTeX Project Public
@@ -59,7 +59,7 @@
 \newif\if@secfloat \@secfloatfalse \DeclareOption{secfloat}{\@secfloattrue}
 \newif\if@secthm                   \DeclareOption{secthm}{\@secthmtrue}
 %
-% 
+%
 % Selection of font size and page dimensions
 % If 12pt option is used, page will be reduced by 80% at printing time
 \newif\if@ten@point \@ten@pointfalse
@@ -165,7 +165,7 @@
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
 \renewcommand\baselinestretch{}
-\setlength\parskip{0\p@}
+\setlength\parskip{3pt}
 
 % Center on A4:
 
@@ -193,8 +193,8 @@
 
 % BREAKS
 \setlength\smallskipamount{6\p@ \@plus 1\p@ \@minus 1\p@}
-\setlength\medskipamount{12\p@ \@plus 3\p@ \@minus 3\p@} 
-\setlength\bigskipamount{24pt \@plus 3\p@ \@minus 3\p@}  
+\setlength\medskipamount{12\p@ \@plus 3\p@ \@minus 3\p@}
+\setlength\bigskipamount{24pt \@plus 3\p@ \@minus 3\p@}
 % PAGE-BREAKING PENALTIES
 \clubpenalty=4000
 \widowpenalty=4000
@@ -216,7 +216,7 @@
 \interlinepenalty=0
 %
 \if@twocolumn
- \setlength\marginparsep {10\p@}
+  \setlength\marginparsep {10\p@}
 \else
   \setlength\marginparsep{7\p@}
 \fi
@@ -320,7 +320,7 @@
   \let\@evenfoot\@oddfoot%
 }
 %
-% HEADLINE: Book Title  
+% HEADLINE: Book Title
 %           Book Editors
 %           IOS Press, 0000
 %
@@ -850,7 +850,7 @@
   \fi
   \if@haskeywords
     \normal@text
-    \if@hasabstract \vskip6pt\else\vskip18pt\fi    
+    \if@hasabstract \vskip6pt\else\vskip18pt\fi
     \centering
     \leavevmode\box\t@keywords\par
   \fi
@@ -1091,7 +1091,7 @@
 \def\endkeyword{\par\egroup\global\dp@t@keywords=\dp\t@keywords}
 \def\keywords#1{\begin{keyword}#1\end{keyword}}
 %
-% 
+%
 %
 % Running title
 \def\runningtitle#1{\gdef\@runtitle{#1}}   \def\@runtitle{}
@@ -1107,11 +1107,11 @@
 \newcount\@pubyear
 \newcount\@copyear
 \@pubyear=\number\year
-\@copyear\@pubyear 
+\@copyear\@pubyear
 \advance\@copyear-2000
 
 \def\pubyear#1{\global\@pubyear#1
-  \global\@copyear\@pubyear 
+  \global\@copyear\@pubyear
   \global\advance\@copyear-2000%
   \ignorespaces}
 %

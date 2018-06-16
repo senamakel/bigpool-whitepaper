@@ -1,38 +1,33 @@
 \documentclass{Bigpool}
 \usepackage{mathptmx}
 \usepackage[
-pdfstartview=XYZ,
-bookmarks=true,
-colorlinks=true,
-linkcolor=blue,
-urlcolor=blue,
-citecolor=blue,
-pdftex,
-bookmarks=true,
-linktocpage=true, % makes the page number as hyperlink in table of content
-hyperindex=true
+	pdfstartview=XYZ,
+	bookmarks=true,
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue,
+	citecolor=blue,
+	pdftex,
+	bookmarks=true,
+	linktocpage=true, % makes the page number as hyperlink in table of content
+	hyperindex=true
 ]{hyperref}
 
-%\usepackage{times}
-%\normalfont
-%\usepackage[T1]{fontenc}
+\usepackage{times}
+\normalfont
+\usepackage[T1]{fontenc}
 %\usepackage[mtplusscr,mtbold]{mathtime}
 
 \begin{document}
 \begin{frontmatter}              % The preamble begins here.
+	\title{BigPool}
+	\subtitle{A Cross-Chain Decentralised Liquidity Pool for Crypto Exchanges}
+	\subtitle{Draft 0.0.1 - May 2018}
+	\author{Steven Enamakel - enamakel@eshe.io}
 
-\title{BigPool}
-\subtitle{A Cross-Chain Decentralised Liquidity Pool for Crypto Exchanges}
-\author{Steven Enamakel - enamakel@cryptocontrol.io}
-
-\begin{abstract}
-These instructions are designed for the Preparation of an Electronic
-Camera-Ready Manuscript in \LaTeX{} and should be read carefully. If you
-have any questions regarding the instructions, please contact the Book
-Production Department, by e-mail: \textit{bookproduction@iospress.nl}
-or fax: +31-20-6870039.
-\end{abstract}
-
+%\begin{abstract}
+%	These instructions are designed for the  Preparation of an Electronic Camera-Ready Manuscript in \LaTeX{} and should be read carefully. If you have any questions regarding the instructions, please contact the Book Production Department, by e-mail: \textit{bookproduction@iospress.nl} or fax: +31-20-6870039.
+%\end{abstract}
 \end{frontmatter}
 
 %\thispagestyle{empty}
@@ -41,18 +36,35 @@ or fax: +31-20-6870039.
 \section*{Introduction}
 Bitcoin was the first digital p2p currency that received mass adoption since it was launched in 2009. Since then the first crypto exchange, Mt. Gox, came in July 2010 and it allowed for investors to get Bitcoins by trading it for USD. Since the Mt. Gox hack in 2011, there have been several concerns about the security of such centralised exchanges. Decentralised exchanges have later come into the picture allow every transaction/trade to happen on the blockchain offering security of funds for the user. However decentralised exchanges today are limited by the transaction speed of the network it operates in.
 
-Exchanges that combine the best of a centralized order matching engine and a decentralized liquidity pool have been conceptualized. These exchanges work by creating a side-chain/off-chain that runs off a smart-contract enabled blockchain like Ethereum. However these exchanges are often only restricted within the domain of the tokens that are issued in that blockchain, eg: Ethereum and ERC20 tokens. 
+Exchanges that combine the best of a centralised order matching engine and a decentralised liquidity pool have been conceptualised. These exchanges create a side-chain/off-chain solution that runs off blockchains that can execute smart contracts like Ethereum. However these exchanges aren't cross-chain compatible and often only restricted within the domain of the tokens that are issued in that blockchain, eg: Ethereum and ERC20 tokens. 
 
-In this paper, a new sidechain protocol is proposed for crypto-exchanges that allows exchanges to accept funds from users in a liquidity pool that is decentralised (ensuring the safety of funds) while at the allowing exchanges to match orders and earning transaction fees on a centralised server. Order are relayed by the exchanges to the sidechain and order settlement eventually happens on the sidechain. 
+In this paper, we describe a new side-chain protocol is crypto-exchanges that allows users to deposit/withdraw funds into a decentralised liquidity pool (ensuring safety of the user's funds) whilst at the same time allowing the exchange to execute buy/sell orders on those funds on a centralised server. Order are relayed by the exchange to the Bigpool side-chain and settlement eventually happens on the side-chain. 
 
-Users can deposit/withdraw any token that uses ECDSA public-private keys (eg: Bitcoin, USDT, Litecoin) securely onto the sidechain and will get pegged tokens issued on the sidechain that can efficiently traded on exchanges.\footnote{For authors using MS Word separate Instructions as well
-as a Word template are available from the Author's Corner on
-www.iospress.nl.}
+Users can deposit/withdraw any token from any blockchain that uses ECDSA private-public keys (eg: Bitcoin, USDT, Litecoin) securely onto the sidechain and will get pegged tokens issued on the sidechain that can efficiently traded on exchanges.
+
+\newpage
+
+\section{A brief overview of the BigPool sidechain}
+There are mainly three actors in BigPool sidechain. Users, Exchanges and Miners.
+
+Miners are responsible for ensuring the security of the locked funds, interacting with other blockchains and allowing users to exchange tokens at a specific rate. Miners have different sub-actors that are responsible to ensure that all consensus rules are being followed properly and that bad behaviour is discouraged. 
+
+Exchanges are responsible for interacting with the users and collecting buy/sell orders. Once an exchange matches a buy and sell order, it broadcasts the pair to the BigPool blockchain for the orders to get settled. BigPool miners will validate if a user has enough balance and if the order conditions have been met before debiting/credit the user.
+
+Users are ones transacting on exchanges and on the BigPool sidechain. Every user receives a BigPool public/private-key which allows them to securely deposit/withdraw tokens from other blockchains onto the BigPool sidechain. When a user wants to deposit a certain token, he'll be given a deposit address which will create pegged tokens on the BigPool sidechain. These pegged tokens can be used to submit buy and sell orders and can be withdrawn to it's own native token at a later point of time.
+
+Users send buy/sell orders signed with their BigPool private key to the different exchanges on the BigPool chain. When an order gets matched, users will be debited/credited exactly as much as they've specified in the order. Exchanges and miners take a transaction fees for every order that is being processed.
+
+% \vspace{3mm}
+
+%We propose a new sidechain protocol that is interoperable with many ECDSA-compatible blockchains. To transact on the BigPool chain, users first need to get a BigPool public and private key which points to account maintaining balances of the different tokens on the BigPool chain including BigPool's own native token.
+
+%The BigPool private key is used to sign transactions and let BigPools miners identify public accounts on the blockchain. 
 
 \section{The BigPool Token}
-To incentivise miners to contribute to the growth and functionality of the blockchain, we introduce a new token native to the Lightning blockchain called as the BigPool token.
+To incentivise miners to contribute to the growth and functionality of the blockchain, we introduce a new token native to the BigPool blockchain called as the BigPool token.
 
-The BigPool token is created every time a new block is mined. The supply of the BigPool token increases at a rate of 5\% annually. 
+BigPool tokens are created every time a new block is mined. The supply of the BigPool token increases at a rate of 5\% annually. 
 
 \subsection{Earning Dividends with the BigPool token}
 The BigPool token is a token that has a special property in that it pays dividends to all the token holders proportionate to how much tokens they hold. Dividends come in the form the transactions fees that are charged in the network and come in form of the token that is being transacted with.
@@ -62,131 +74,68 @@ This gives the BigPool token an inherent value because token holders will be get
 \section{Exchanges on the network}
 A crypto-exchange is a third party that matches orders submitted by users. Users send orders to an exchange and an exchanges matches them and send them over to the BigPool side-chain.
 
-\subsection{Font}
-
-The font type for running text (body text) is 10~point Times New Roman.
-There is no need to code normal type (roman text). For literal text, please use
-\texttt{type\-writer} (\verb|\texttt{}|)
-or \textsf{sans serif} (\verb|\textsf{}|). \emph{Italic} (\verb|\emph{}|)
-or \textbf{boldface} (\verb|\textbf{}|) should be used for emphasis.
-
-\subsection{General Layout}
-Use single (1.0) line spacing throughout the document. For the main
-body of the paper use the commands of the standard \LaTeX{}
-``article'' class. You can add packages or declare new \LaTeX{}
-functions if and only if there is no conflict between your packages
-and the \texttt{IOS-Book-Article}.
-
-Always give a \verb|\label| where possible and use \verb|\ref| for cross-referencing.
-
-
-\subsection{(Sub-)Section Headings}
-Use the standard \LaTeX{} commands for headings: {\small \verb|\section|, \verb|\subsection|, \verb|\subsubsection|, \verb|\paragraph|}.
-Headings will be automatically numbered.
-
-Use initial capitals in the headings, except for articles (a, an, the), coordinate
-conjunctions (and, or, nor), and prepositions, unless they appear at the beginning
-of the heading.
-
-\subsection{Footnotes and Endnotes}
-Please keep footnotes to a minimum. If they take up more space than roughly 10\% of
-the type area, list them as endnotes, before the References. Footnotes and endnotes
-should both be numbered in arabic numerals and, in the case of endnotes, preceded by
-the heading ``Endnotes''.
-
-\subsection{References}
-
-References to the literature should be mentioned in the main text by arabic numerals in
-square brackets. Use the Citation-Sequence System, which means they are ``listed and
-numbered in the sequence in which they are 1st cited. ($\ldots$) Subsequent citations of the
-same document use the same numbers as that of its initial citation'' \cite{r1}.
-
-As regards the content, form and punctuation of the References, if the volume
-editor has not expressed a preference in this matter, authors should select the format
-most appropriate to their article, and use it \textit{consistently}.
-
-\section{Illustrations}
-
-\subsection{General Remarks on Illustrations}
-The text should include references to all illustrations. Refer to illustrations in the
-text as Table~1, Table~2, Figure~1, Figure~2, etc., not with the section or chapter number
-included, e.g. Table 3.2, Figure 4.3, etc. Do not use the words ``below'' or ``above''
-referring to the tables, figures, etc.
-
-Do not collect illustrations at the back of your article, but incorporate them in the
-text. Position tables and figures at the top or bottom of a page, with at least 2 lines
-extra space between tables or figures and the running text.
-
-Illustrations should be centered on the page, except for small figures that can fit
-side by side inside the type area. Tables and figures should not have text wrapped
-alongside.
-
-Place figure captions \textit{below} the figure, table captions \textit{above} the table.
-Use bold for table/figure labels and numbers, e.g.: \textbf{Table 1.}, \textbf{Figure 2.},
-and roman for the text of the caption. Keep table and figure captions justified. Center
-short figure captions only.
-
-The minimum \textit{font size} for characters in tables is 8 points, and for lettering in other
-illustrations, 6 points.
-
-On maps and other figures where a \textit{scale} is needed, use bar scales rather than
-numerical ones of the type 1:10,000.
-
-\subsection{Quality of Illustrations}
-Use only Type I fonts for lettering in illustrations.
-
-Include graphics in Encapsulated postscript (EPS) format. Do \textit{not} use illustrations
-taken from the Internet. The resolution of images intended for viewing on a screen is
-not sufficient for the printed version of the book.
-
-If you are incorporating screen captures, keep in mind that the text may not be
-legible after reproduction (using a screen capture tool, instead of the Print Screen
-option of PC's, might help to improve the quality).
-
-\subsection{Color Illustrations}
-Please note, that illustrations will only be printed in color if the volume editor agrees to
-pay the production costs for color printing. However, you should \textit{not} use color in
-illustrations that must be printed in black and white, because this will greatly reduce the
-print quality. (Note that in software the default often is color, so you may have to
-change the settings for these illustrations.)
-
-Illustrations that must be printed in colour should be enclosed as CMYK-encoded
-EPS files.
-
-
-\section{Equations}
-Number equations consecutively, not section-wise. Place the numbers in parentheses at
-the right-hand margin, level with the last line of the equation. Refer to equations in the
-text as Eq. (1), Eqs. (3) and (5).
-
-\section{Fine Tuning}
-
-\subsection{Type Area}
-\textbf{Check once more that all the text and illustrations are inside the type area and
-that the type area is used to the maximum.} You may of course end a page with one
-or more blank lines to avoid `widow' headings, or at the end of a chapter.
-
-\subsection{Capitalization}
-Use initial capitals in the title and headings, except for articles (a, an, the), coordinate
-conjunctions (and, or, nor), and prepositions, unless they appear at the beginning of the
-title or heading.
-
-\subsection{Page Numbers and Running Headlines}
-You do not need to include page numbers or running headlines. These elements will be
-added by the publisher.
-
-\section{Submitting the Manuscript}
-Submit the following to the volume editor:
-
+To create an order, the exchange first presents a user with the details of an order. This includes the following points: 
 \begin{enumerate}
-\item The main source file, and any other required files. Do not submit more than
-one version of any item.
-
-\item Identical high resolution PDF file with all fonts embedded. First produce a
-Postscript file from \LaTeX{} with DVIPS version 5.56 or higher. The option
-``-M'' (don't make fonts) should be indicated. Use Adobe Acrobat Distiller to
-produce the PDF and choose the job option \textit{Press-Optimized}.
+	\item The base and quote asset
+	\item If the order is a buy or a sell order
+	\item The amount of quote asset the user would like to buy/sell and the price at which it’ll be done.
+	\item The transaction fee and the address to which the transaction fee will go to. The transaction fee address will usually point to the exchange’s 
 \end{enumerate}
+
+A user can acknowledge an order by signing a SHA256 hash of the order using his Bigpool private key. Note that in the order’s hash, the toAddress is not included as this is something that’ll get filled up by the exchange.
+
+This is used by validator nodes to verify that a the details of the order are actually sent by the user and not by the exchange.
+
+%\subsection{Canceling orders that are already placed}
+%This will allow exchanges to match orders on behalf of the users, earn transaction fees for matching the right ones and not worry about the security of any of the funds placed in each order. 
+
+
+\section{Miners on the network}
+To ensure a good decentralised behaviour in the network, we introduce three kinds of miners. All miners are required to stake a certain number of tokens to incentivise good behaviour. 
+
+Airdrops and faucets can help distrubte the token; look at omg
+\begin{enumerate}
+	\item \textbf{Storeman nodes}: These are nodes that manage locked funds and interact with other mainchains.
+	\item \textbf{Voucher nodes}: These are nodes that observe and validate cross-chain transactions. Vouchers pay the least security deposit.
+	\item \textbf{Validator nodes}: These nodes are the ones that process orders coming in from exchanges
+\end{enumerate}
+
+% Processing transaction fees
+
+\section{Validator Nodes}
+Validator nodes are responsible for processing balances of users on the blockchain. A validator node maintains a ledger of user addresses containing balances of each asset including the native blockchain token and a also a list of blocks. 
+
+The main process of the validator node is not just to process transfer of native tokens  and crypto assets from one place to another, but to also validate and  process orders coming in from an exchange.
+
+Any user can run a validator node and earn transaction fees as well as earn native tokens for mining blocks. 
+
+\section{Storeman Nodes}
+Storeman nodes are the most crucial nodes of the entire network. They are responsible for management of locked tokens from other blockchains. Storeman nodes operate this by having joint custody of the addresses that lie on the mainchain. 
+
+\subsection{Ensuring security of locked funds with Storeman nodes}
+To allow for such operations, funds from the mainchain need to be sent to an address that is controlled by one of BigPool’s storeman nodes. Control of such addresses has to be evenly distributed across the storeman nodes taking care that no node can sign transactions without consent of the other nodes.
+
+For this to happen, we propose that the private key of the newly generated wallet be split into n key shares and distributed across the n storeman nodes. Using Shamir’s secret sharing algorithm we can recreate the private key once k out of n key shares (where k < n) has been collected.
+
+However this poses a problem that the private key is recreated, and that there’s a possibility that a malicious miner can then use it to sign transactions for himself. For this problem we introduce threshold key signatures.
+
+Threshold signatures allow for each key share to be used to create a signature share that’ll eventually be combined to create the final signature for the transaction. The private key is never re-created during this process and the final signature will be fully valid. 
+
+% -- Have n-lock sequence. --
+
+% -- Describe the threshold signatures algorithm here --
+
+\subsection{Staking Bigpool tokens to become a storeman}
+Candidates to run a Storeman node require a minimum amount of Bigpool tokens that need to be staked by the node. Staking tokens will incentive good behaviour by the node, whilst punishing bad behaviour by burning all of the staked tokens.
+
+% -- Have a way for the token amount to be calculated in a distributed way --
+
+\section{Voucher Nodes}
+Voucher nodes are responsible for monitoring activity on other mainchain nodes. This includes any deposits/withdrawals that happens on the mainchain. 
+
+Voucher nodes record every single deposit/withdrawal that happens on any of the mainchain and automatically credits/debits addresses and their respective balances on the sidechain.
+
+% Talk about the blockchain and how it'll be designed
 
 
 \begin{thebibliography}{99}
@@ -207,5 +156,9 @@ produce the PDF and choose the job option \textit{Press-Optimized}.
 
 	\bibitem{r6}
 	\textit{Jack Lu, Demmon, Shi, Zane Liang, Ying Zhang, Boris Yang, Eric Swartz, Lizzie Lu}: Wanchain yellow paper - \url{https://www.wanchain.org/files/Wanchain-Yellowpaper-EN-version.pdf} - 2017
+	
+	\bibitem{r7}
+	\textit{Steven Goldfeder, Rosario Gennaro, Harry Kalodner, Joseph Bonneau, Joshua A.Kroll, Edward W.Felten, Arvind Narayanan}: Securing Bitcoin wallets via a new DSA/ECDSA threshold signature scheme - \url{http://www.cs.princeton.edu/~stevenag/threshold_sigs.pdf} - 2018
+	
 \end{thebibliography}
 \end{document}
